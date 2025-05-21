@@ -19,7 +19,7 @@ body {
 
 .name {
   position: absolute;
-  top: 320px;  /* Adjust to place over "الابن / الابنة" */
+  top: 330px;  /* Adjust to place over "الابن / الابنة" */
   right: 0;
   left: 0;
   font-size: 36px;
