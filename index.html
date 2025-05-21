@@ -66,7 +66,9 @@
       const link = document.createElement('a');
       link.download = `شهادة - ${name}.png`;
       link.href = canvas.toDataURL();
-      
+      link.click();
+    });
+  });
 </script>
 
 </body>
