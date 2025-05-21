@@ -1,0 +1,29 @@
+body {
+  background-color: #f5f5dc;
+  font-family: 'Cairo', sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.certificate-container {
+  position: relative;
+  display: inline-block;
+  width: 1086px; /* Match image width */
+  max-width: 100%;
+}
+
+.certificate-bg {
+  width: 100%;
+  height: auto;
+}
+
+.name {
+  position: absolute;
+  top: 330px;  /* Adjust to place over "الابن / الابنة" */
+  right: 0;
+  left: 0;
+  font-size: 36px;
+  color: #3a2b0b;
+  font-weight: bold;
+  text-align: center;
+}
