@@ -2,19 +2,78 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>شهادة تخرج</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+    }
+    .certificate-container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      overflow: hidden;
+    }
+    .certificate-image {
+      width: 100%;
+      display: block;
+    }
+    .name-overlay {
+      position: absolute;
+      top: 42%; /* Adjust vertically */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.5vw; /* responsive font */
+      color: #000;
+      font-weight: bold;
+      white-space: nowrap;
+      text-align: center;
+    }
+    .download-btn {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 9999;
+      padding: 10px 20px;
+      background: #008CBA;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
 </head>
 <body>
-  <div class="certificate-container" id="certificate">
-    <img src="certificate-template.jpg" class="certificate-bg" alt="شهادة التخرج">
-    <div class="name" id="name">الاسم هنا</div>
-  </div>
 
-  <button id="downloadBtn">تحميل الشهادة</button>
+<button class="download-btn" id="downloadBtn">📥 تحميل الشهادة</button>
 
-  <script src="script.js"></script>
+<div class="certificate-container" id="certificate">
+  <img class="certificate-image" src="Graduation Certificate.png" alt="Certificate">
+  <div class="name-overlay" id="name"></div>
+</div>
+
+<!-- html2canvas to render the image -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get('name') || 'الاسم';
+  document.getElementById('name').textContent = name;
+
+  window.onload = function () {
+    setTimeout(() => document.getElementById('downloadBtn').click(), 500);
+  };
+
+  document.getElementById("downloadBtn").addEventListener("click", () => {
+    html2canvas(document.getElementById("certificate")).then(canvas => {
+      const link = document.createElement('a');
+      link.download = `شهادة - ${name}.png`;
+      link.href = canvas.toDataURL();
+      link.click();
+    });
+  });
+</script>
+
 </body>
 </html>
