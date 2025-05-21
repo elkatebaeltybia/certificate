@@ -61,10 +61,6 @@
   const name = params.get('name') || 'الاسم';
   document.getElementById('name').textContent = name;
 
-  window.onload = function () {
-    setTimeout(() => document.getElementById('downloadBtn').click(), 500);
-  };
-
   document.getElementById("downloadBtn").addEventListener("click", () => {
     html2canvas(document.getElementById("certificate")).then(canvas => {
       const link = document.createElement('a');
