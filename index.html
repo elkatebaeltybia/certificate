@@ -61,14 +61,6 @@
   const name = params.get('name') || 'الاسم';
   document.getElementById('name').textContent = name;
 
-  document.getElementById("downloadBtn").addEventListener("click", () => {
-    html2canvas(document.getElementById("certificate")).then(canvas => {
-      const link = document.createElement('a');
-      link.download = `شهادة - ${name}.png`;
-      link.href = canvas.toDataURL();
-      link.click();
-    });
-  });
 </script>
 
 </body>
