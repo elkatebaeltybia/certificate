@@ -14,18 +14,25 @@ document.getElementById("downloadBtn").addEventListener("click", () => {
   });
 });
 
-  // 🔹 Font size controls
-  let nameElement = document.getElementById("name");
-  let currentSize = parseFloat(window.getComputedStyle(nameElement).fontSize);
+ // 🔹 Font size controls
+  const nameElement = document.getElementById("name");
+
+  // fallback: set initial size in pixels instead of vw
+  let currentSize = 30; // default px
+  nameElement.style.fontSize = currentSize + "px";
 
   function increaseFont() {
-    currentSize += 50; // increase by 2px
+    currentSize += 2;
     nameElement.style.fontSize = currentSize + "px";
   }
 
   function decreaseFont() {
-    currentSize -= 50; // decrease by 2px
-    if (currentSize < 10) currentSize = 10; // minimum font size
+    currentSize -= 2;
+    if (currentSize < 10) currentSize = 10; // minimum
     nameElement.style.fontSize = currentSize + "px";
   }
+
+  // Expose functions to buttons
+  window.increaseFont = increaseFont;
+  window.decreaseFont = decreaseFont;
 
