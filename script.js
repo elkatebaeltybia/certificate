@@ -13,3 +13,18 @@ document.getElementById("downloadBtn").addEventListener("click", () => {
     link.click();
   });
 });
+
+  // 🔹 Font size controls
+  let nameElement = document.getElementById("name");
+  let currentSize = parseFloat(window.getComputedStyle(nameElement).fontSize);
+
+  function increaseFont() {
+    currentSize += 2; // increase by 2px
+    nameElement.style.fontSize = currentSize + "px";
+  }
+
+  function decreaseFont() {
+    currentSize -= 2; // decrease by 2px
+    if (currentSize < 10) currentSize = 10; // minimum font size
+    nameElement.style.fontSize = currentSize + "px";
+  }
