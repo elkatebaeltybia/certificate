@@ -22,7 +22,7 @@
     .name-overlay {
       position: absolute;
       top: 45%; /* Adjust vertically */
-      left: 30%;
+      left: 40%;
       transform: translate(-50%, -50%);
       font-size: 3.0vw; /* responsive font */
       color: #000;
@@ -48,6 +48,10 @@
 <body>
 
 <button class="download-btn" id="downloadBtn">📥 تحميل الشهادة</button>
+<div style="text-align:center; margin-top:20px;">
+  <button onclick="increaseFont()">➕ تكبير الخط</button>
+  <button onclick="decreaseFont()">➖ تصغير الخط</button>
+</div>
 
 <div class="certificate-container" id="certificate">
   <img class="certificate-image" src="certificate-template.jpg" alt="Certificate">
@@ -73,6 +77,7 @@
 
 </body>
 </html>
+
 
 
 
